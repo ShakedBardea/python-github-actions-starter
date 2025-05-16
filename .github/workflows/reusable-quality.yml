@@ -29,7 +29,9 @@ jobs:
 
       - name: Run Tests
         if: ${{ inputs.action == 'test' }}
-        run: PYTHONPATH=src pytest
+        env:
+            PYTHONPATH: src
+        run: pytest
 
   dockerBuild:
     runs-on: ubuntu-latest
